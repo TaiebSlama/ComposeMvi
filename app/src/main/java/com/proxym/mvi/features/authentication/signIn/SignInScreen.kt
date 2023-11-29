@@ -24,7 +24,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
+import androidx.navigation.NavController
 import com.proxym.mvi.base.helper.ObserveLifeCycle
+import com.proxym.mvi.features.authentication.AuthenticationScreens
 
 /**
  * Created by taieb.slama@zeta-box.com on 11/29/2023 .
@@ -33,7 +35,7 @@ import com.proxym.mvi.base.helper.ObserveLifeCycle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SignInScreen() {
+fun SignInScreen(navController: NavController) {
     val viewModel: SignInViewModel = hiltViewModel()
     val signInState = viewModel.viewStates
 
@@ -106,7 +108,7 @@ fun SignInScreen() {
             Spacer(modifier = Modifier.size(10.dp))
 
             Button(onClick = {
-
+                navController.navigate(AuthenticationScreens.SIGN_UP.route)
             }) {
                 Text(text = "Sign Up")
             }
