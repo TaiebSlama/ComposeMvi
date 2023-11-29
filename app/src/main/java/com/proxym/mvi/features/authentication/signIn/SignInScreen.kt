@@ -76,7 +76,7 @@ fun SignInScreen() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(text = "Welcome")
+            Text(text = "Welcome to sign in")
             Spacer(modifier = Modifier.size(50.dp))
             TextField(
                 value = username,
