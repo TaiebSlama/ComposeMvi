@@ -1,4 +1,4 @@
-package com.proxym.mvi.base
+package com.proxym.mvi.base.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -16,4 +16,5 @@ abstract class BaseActivity : ComponentActivity() {
 
     @Composable
     abstract fun ActivityLayout()
+
 }

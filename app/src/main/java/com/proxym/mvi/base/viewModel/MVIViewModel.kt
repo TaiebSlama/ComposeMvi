@@ -1,7 +1,8 @@
-package com.proxym.mvi.base
+package com.proxym.mvi.base.viewModel
 
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import kotlinx.coroutines.flow.MutableStateFlow
 
 
 /**
@@ -15,7 +16,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 abstract class MVIViewModel<STATE, EVENT> : ViewModel() {
 
-    open val viewStates: MutableStateFlow<STATE?> = MutableStateFlow(null)
+    open val viewStates: MutableState<STATE?> = mutableStateOf(null)
 
     abstract suspend fun initStates()
 
