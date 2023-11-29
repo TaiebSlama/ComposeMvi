@@ -55,7 +55,6 @@ fun SignInScreen(navController: NavController) {
         }
     }
 
-
     ObserveLifeCycle {
         when (it) {
             Lifecycle.State.DESTROYED -> Log.d("ObserveLifeCycle", "Login DESTROYED")
