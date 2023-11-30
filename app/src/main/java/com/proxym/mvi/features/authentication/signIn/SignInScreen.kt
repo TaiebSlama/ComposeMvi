@@ -14,10 +14,6 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -32,6 +28,8 @@ import com.proxym.mvi.features.authentication.AuthenticationHosts
  * Created by taieb.slama@zeta-box.com on 11/29/2023 .
  * Copyright (c) 2023 ZETA-BOX. All rights reserved.
  */
+
+var bindingModel: SignInBindingModel = SignInBindingModel()
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -65,10 +63,6 @@ fun SignInScreen(navController: NavController) {
         }
     }
 
-    var username by remember { mutableStateOf("") }
-
-    var pwd by remember { mutableStateOf("") }
-
     Scaffold(modifier = Modifier.fillMaxSize(), topBar = {}, content = { padding ->
         Column(
             modifier = Modifier
@@ -80,9 +74,9 @@ fun SignInScreen(navController: NavController) {
             Text(text = "Welcome to sign in")
             Spacer(modifier = Modifier.size(50.dp))
             TextField(
-                value = username,
+                value = bindingModel.username,
                 onValueChange = { newValue ->
-                    username = newValue
+                    bindingModel.username = newValue
                 },
                 placeholder = { Text(text = "Username") }
             )
@@ -90,16 +84,21 @@ fun SignInScreen(navController: NavController) {
             Spacer(modifier = Modifier.size(10.dp))
 
             TextField(
-                value = pwd,
+                value = bindingModel.pwd,
                 onValueChange = { newValue ->
-                    pwd = newValue
+                    bindingModel.pwd = newValue
                 },
                 placeholder = { Text(text = "Pwd") })
 
             Spacer(modifier = Modifier.size(50.dp))
 
             Button(onClick = {
-                viewModel.handleEvents(SignInEvents.SignIn(username = username, pwd = pwd))
+                viewModel.handleEvents(
+                    SignInEvents.SignIn(
+                        username = bindingModel.username,
+                        pwd = bindingModel.pwd
+                    )
+                )
             }) {
                 Text(text = "Sign In")
             }
