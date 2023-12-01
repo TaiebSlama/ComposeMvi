@@ -1,6 +1,8 @@
 package com.proxym.mvi.features.authentication.signIn
 
 import com.proxym.mvi.base.viewModel.MVIViewModel
+import com.proxym.mvi.domain.AuthenticationFunctions
+import com.proxym.mvi.domain.AuthenticationManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -11,16 +13,23 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SignInViewModel @Inject constructor() : MVIViewModel<SignInStates, SignInEvents>() {
+
+    var authenticationManager: AuthenticationFunctions = AuthenticationManager()
+
     override suspend fun initStates() {
     }
 
     override fun handleEvents(viewEvent: SignInEvents) {
         when (viewEvent) {
             is SignInEvents.SignIn -> {
-                if (viewEvent.username.isEmpty() || viewEvent.pwd.isEmpty())
-                    moveToState(SignInStates.SignInFailure("missing data"))
-                else
-                    moveToState(SignInStates.SignInSuccess)
+                authenticationManager.signIn(viewEvent.username, viewEvent.pwd,
+                    success = {
+                        moveToState(SignInStates.SignInSuccess)
+                    },
+                    failure = {
+                        moveToState(SignInStates.SignInFailure("missing data"))
+                    })
+
             }
         }
     }
