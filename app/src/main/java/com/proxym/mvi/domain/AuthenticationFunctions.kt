@@ -10,5 +10,5 @@ interface AuthenticationFunctions {
     /**
      * [AuthenticationManager.signIn]
      */
-    fun signIn(username: String, pwd: String, success: () -> Unit, failure: () -> Unit)
+    fun signIn(username: String, pwd: String, success: () -> Unit, failure: (String) -> Unit)
 }

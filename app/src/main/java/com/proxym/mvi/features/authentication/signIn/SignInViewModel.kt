@@ -26,8 +26,8 @@ class SignInViewModel @Inject constructor() : MVIViewModel<SignInStates, SignInE
                     success = {
                         moveToState(SignInStates.SignInSuccess)
                     },
-                    failure = {
-                        moveToState(SignInStates.SignInFailure("missing data"))
+                    failure = { error ->
+                        moveToState(SignInStates.SignInFailure(error))
                     })
 
             }

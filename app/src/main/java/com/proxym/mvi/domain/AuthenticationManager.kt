@@ -6,10 +6,14 @@ package com.proxym.mvi.domain
  */
 class AuthenticationManager : AuthenticationFunctions {
 
-
-    override fun signIn(username: String, pwd: String, success: () -> Unit, failure: () -> Unit) {
+    override fun signIn(
+        username: String,
+        pwd: String,
+        success: () -> Unit,
+        failure: (String) -> Unit
+    ) {
         if (username.isEmpty() || pwd.isEmpty())
-            failure()
+            failure("missing data ")
         else
             success()
     }
