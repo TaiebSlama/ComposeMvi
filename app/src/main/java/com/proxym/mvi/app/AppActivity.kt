@@ -3,10 +3,11 @@ package com.proxym.mvi.app
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.proxym.mvi.base.activity.BaseActivity
-import com.proxym.mvi.features.authentication.authentication
-import com.proxym.mvi.features.dashboard.dashboard
+import com.proxym.mvi.features.authentication.Authentication
+import com.proxym.mvi.features.dashboard.Dashboard
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,15 +21,15 @@ class AppActivity : BaseActivity() {
                 navController = navController,
                 startDestination = AppRoutes.Authentication.route
             ) {
-                authentication(
-                    route = AppRoutes.Authentication.route,
-                    navController = navController,
-                )
 
-                dashboard(
-                    route = AppRoutes.Dashboard.route,
-                    navController = navController,
-                )
+                // Authentication
+                composable(route = AppRoutes.Authentication.route) {
+                    Authentication {}
+                }
+
+                composable(route = AppRoutes.Dashboard.route) {
+                    Dashboard {}
+                }
             }
         }
     }

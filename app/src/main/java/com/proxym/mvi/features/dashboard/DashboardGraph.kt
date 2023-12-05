@@ -1,20 +1,19 @@
 package com.proxym.mvi.features.dashboard
 
-import androidx.navigation.NavController
-import androidx.navigation.NavGraphBuilder
+import androidx.compose.runtime.Composable
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navigation
+import androidx.navigation.compose.rememberNavController
 
 /**
  * Created by taieb.slama@zeta-box.com on 12/5/2023 .
  * Copyright (c) 2023 ZETA-BOX. All rights reserved.
  */
-fun NavGraphBuilder.dashboard(
-    route: String,
-    navController: NavController
-) {
-    navigation(
-        route = route,
+@Composable
+fun Dashboard(callback: () -> Unit) {
+    val dashboardNavController = rememberNavController()
+    NavHost(
+        navController = dashboardNavController,
         startDestination = DashboardRoutes.Home.route
     ) {
         composable(route = DashboardRoutes.Home.route) { }
