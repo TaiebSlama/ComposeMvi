@@ -1,6 +1,6 @@
 package com.proxym.mvi.features.authentication.signIn
 
-import com.proxym.mvi.base.viewModel.MVIViewModel
+import com.proxym.mvi.app.common.viewModel.MVIViewModel
 import com.proxym.mvi.domain.AuthenticationFunctions
 import com.proxym.mvi.domain.AuthenticationManager
 import dagger.hilt.android.lifecycle.HiltViewModel

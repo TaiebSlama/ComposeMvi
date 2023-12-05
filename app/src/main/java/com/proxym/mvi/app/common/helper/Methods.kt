@@ -1,4 +1,4 @@
-package com.proxym.mvi.base.helper
+package com.proxym.mvi.app.common.helper
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

@@ -1,4 +1,4 @@
-package com.proxym.mvi.base.viewModel
+package com.proxym.mvi.app.common.viewModel
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf

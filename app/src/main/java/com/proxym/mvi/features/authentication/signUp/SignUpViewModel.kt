@@ -1,6 +1,6 @@
 package com.proxym.mvi.features.authentication.signUp
 
-import com.proxym.mvi.base.viewModel.MVIViewModel
+import com.proxym.mvi.app.common.viewModel.MVIViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

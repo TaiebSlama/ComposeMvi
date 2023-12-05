@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
-import com.proxym.mvi.base.helper.ObserveLifeCycle
+import com.proxym.mvi.app.common.helper.ObserveLifeCycle
 import com.proxym.mvi.features.authentication.AuthenticationRoutes
 
 /**

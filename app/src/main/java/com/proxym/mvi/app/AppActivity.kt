@@ -5,7 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.proxym.mvi.base.activity.BaseActivity
+import com.proxym.mvi.app.common.activity.BaseActivity
 import com.proxym.mvi.features.authentication.Authentication
 import com.proxym.mvi.features.dashboard.Dashboard
 import dagger.hilt.android.AndroidEntryPoint

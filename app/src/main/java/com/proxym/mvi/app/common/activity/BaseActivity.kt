@@ -1,4 +1,4 @@
-package com.proxym.mvi.base.activity
+package com.proxym.mvi.app.common.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
