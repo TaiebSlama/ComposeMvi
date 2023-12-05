@@ -1,9 +1,13 @@
 package com.proxym.mvi.features.authentication
 
+import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
+import com.proxym.mvi.app.AppRoutes
 import com.proxym.mvi.features.authentication.signIn.SignInScreen
 import com.proxym.mvi.features.authentication.signUp.SignUpScreen
 
@@ -21,5 +25,25 @@ fun NavGraphBuilder.authentication(
     ) {
         composable(route = AuthenticationRoutes.SignIn.route) { SignInScreen(navController) }
         composable(route = AuthenticationRoutes.SignUp.route) { SignUpScreen(navController) }
+    }
+}
+
+@Composable
+fun Authentication(navController: NavController) {
+    val authenticationNavController = rememberNavController()
+    NavHost(
+        navController = authenticationNavController,
+        startDestination = AppRoutes.Authentication.route
+    ) {
+        composable(route = AuthenticationRoutes.SignIn.route) {
+            SignInScreen(
+                authenticationNavController
+            )
+        }
+        composable(route = AuthenticationRoutes.SignUp.route) {
+            SignUpScreen(
+                authenticationNavController
+            )
+        }
     }
 }

@@ -7,5 +7,4 @@ package com.proxym.mvi.app
 sealed class AppRoutes(var route: String) {
     object Authentication : AppRoutes("Authentication")
     object Dashboard : AppRoutes("Dashboard")
-
 }
