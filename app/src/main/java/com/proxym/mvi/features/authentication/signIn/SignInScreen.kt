@@ -22,7 +22,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.Lifecycle
 import androidx.navigation.NavController
 import com.proxym.mvi.base.helper.ObserveLifeCycle
-import com.proxym.mvi.features.authentication.AuthenticationHosts
+import com.proxym.mvi.features.authentication.AuthenticationRoutes
 
 /**
  * Created by taieb.slama@zeta-box.com on 11/29/2023 .
@@ -106,7 +106,7 @@ fun SignInScreen(navController: NavController) {
             Spacer(modifier = Modifier.size(10.dp))
 
             Button(onClick = {
-                navController.navigate(AuthenticationHosts.SIGN_UP.route)
+                navController.navigate(AuthenticationRoutes.SignUp.route)
             }) {
                 Text(text = "Sign Up")
             }

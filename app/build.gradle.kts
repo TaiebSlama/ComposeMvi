@@ -37,6 +37,7 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+        allWarningsAsErrors = false
     }
     buildFeatures {
         compose = true

@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.proxym.mvi.features.authentication.AuthenticationHosts
+import com.proxym.mvi.features.authentication.AuthenticationRoutes
 
 /**
  * Created by taieb.slama@zeta-box.com on 11/29/2023 .
@@ -84,7 +84,7 @@ fun SignUpScreen(navController: NavController) {
             Spacer(modifier = Modifier.size(10.dp))
 
             Button(onClick = {
-                navController.navigate(AuthenticationHosts.SIGN_IN.route)
+                navController.navigate(AuthenticationRoutes.SignIn.route)
             }) {
                 Text(text = "Sign in")
             }
